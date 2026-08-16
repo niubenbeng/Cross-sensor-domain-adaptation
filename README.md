@@ -10,11 +10,14 @@ Cross-sensor-domain-adaptation/
 │   ├── main.py                  # Training entry point
 │   ├── losses.py                # MMSD / JMMSD / VDR / JVDR / JVM losses
 │   ├── swin_transformer_1d.py   # 1D Swin Transformer backbone + PatchMerging
+├── requirements.txt             # Python dependencies
+├── LICENSE                      # MIT License
+├── README.md
 ```
 
 ## Environment
 - PyTorch 2.5.1 + CUDA 12.4
-- Dependencies: `torch`, `timm`, `torchmetrics`, `scikit-learn`, `numpy`
+- Install dependencies: `pip install -r requirements.txt`
 
 ## Data Layout
 
@@ -89,4 +92,8 @@ Each run writes to `--save_path`:
 | `train.log` | per-epoch metrics (loss, acc, P/R/F1, best so far) |
 | `hparams.json` | full hyperparameter record |
 | `summary.json` | final best/final accuracy, P/R/F1, total time |
+
+## License
+
+This project is licensed under the MIT License — see [LICENSE](LICENSE) for details.
 
