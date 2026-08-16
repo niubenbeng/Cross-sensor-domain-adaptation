@@ -1,4 +1,4 @@
-# Cross-Sensor Bearing Fault Diagnosis
+# Cross-Sensor Domain Adaptation for Mechanical Fault Diagnosis
 
 Cross-sensor transfer learning for mechanical fault diagnosis, fusing JMMSD (RBF + squared) and JVDR (Student-t + centered squared) joint distribution alignment on top of a 1D Swin Transformer backbone.
 
@@ -22,7 +22,34 @@ Data Availability:
 The CWRU dataset: https://engineering.case.edu/bearingdatacenter/download-data-file.
 The XJTU Spurgear: https://github.com/HazeDT/PHMGNNBenchmark/tree/main. 
 
-Datasets are `.npy` files of shape `(N, L)` for signals and `(N, C)` one-hot for labels, organized by channel:
+Datasets are `.npy` files of shape `(N, L)` for signals and `(N, C)` one-hot for labels.
+
+### Sensor Positions
+
+Cross-sensor transfer tasks are built by selecting one sensor position as the source domain and another as the target domain. Each position's signals are stored as separate `.npy` files.
+
+**CWRU** — 3 sensor positions:
+
+| Position | Code | Location |
+|---|---|---|
+| Fan End | `FE` | Fan end accelerometer |
+| Drive End | `DE` | Drive end accelerometer |
+| Basement | `BA` | Basement accelerometer |
+
+Example transfer tasks: `FE -> DE`, `DE -> BA`, `BA -> FE`, etc.
+
+**XJTU Spurgear** — 12 sensor positions:
+
+| Position | Code |
+|---|---|
+| Channel 0 | `channel_0` |
+| Channel 1 | `channel_1` |
+| ... | ... |
+| Channel 11 | `channel_11` |
+
+Example transfer tasks: `channel_0 -> channel_1`, `channel_3 -> channel_7`, etc.
+
+To run a cross-sensor task, point `--src_data/--src_label` to one position's files and `--dst_data/--dst_label` to another position's files.
 
 ## Quick Start
 
