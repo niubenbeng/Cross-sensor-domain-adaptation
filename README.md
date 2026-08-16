@@ -30,11 +30,11 @@ Cross-sensor transfer tasks are built by selecting one sensor position as the so
 
 **CWRU** — 3 sensor positions:
 
-| Position | Code | Location |
-|---|---|---|
-| Fan End | `FE` | Fan end accelerometer |
-| Drive End | `DE` | Drive end accelerometer |
-| Basement | `BA` | Basement accelerometer |
+| Position | Code |
+|---|---|
+| Fan End | `FE` |
+| Drive End | `DE` |
+| Basement | `BA` |
 
 Example transfer tasks: `FE -> DE`, `DE -> BA`, `BA -> FE`, etc.
 
